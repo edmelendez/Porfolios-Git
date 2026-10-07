@@ -328,7 +328,7 @@ function AllianceApp() {
           {activeTab === 'dialer' ? (
             <View style={styles.dialer}>
               <EmergencyButton calling={calling} secondsLeft={secondsLeft} onPress={triggerEmergencyCall} />
-              {calling && <Text style={styles.cancelHint}>Tap the button again to cancel</Text>}
+              {calling && secondsLeft > 0 && <Text style={styles.cancelHint}>Tap the button again to cancel</Text>}
               <View style={styles.addressBlock}>
                 <Pressable
                   onPress={() => Linking.openURL(VERIFIED_LOCATION.mapsUrl)}
