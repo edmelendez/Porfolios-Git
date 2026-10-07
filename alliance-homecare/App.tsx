@@ -252,6 +252,12 @@ function AllianceApp() {
     >
       <StatusBar style="light" />
       <SafeAreaView style={styles.safe} edges={['top', 'bottom', 'left', 'right']}>
+        {Platform.OS === 'web' && (
+          <Text style={styles.webNote}>
+            Preview · calls and texts work in the phone app
+          </Text>
+        )}
+
         {/* ---------- Header ---------- */}
         <View style={[styles.header, isTablet && styles.wide]}>
           <View style={styles.statusRow}>
@@ -576,6 +582,18 @@ const styles = StyleSheet.create({
   wide: { maxWidth: 640 },
   wideMain: { maxWidth: 768 },
 
+  webNote: {
+    color: colors.slate400,
+    fontFamily: fonts.medium,
+    fontSize: 11,
+    textAlign: 'center',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    marginBottom: 4,
+    borderRadius: 999,
+    backgroundColor: colors.glass,
+    overflow: 'hidden',
+  },
   header: { width: '100%', gap: 12, paddingBottom: 8 },
   statusRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, height: 32 },
   statusDot: { width: 10, height: 10, borderRadius: 5 },
